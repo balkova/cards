@@ -1,0 +1,74 @@
+@font-face {
+	font-family: 'Verdana';
+	src: url('../fonts/Verdana.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Verdana';
+	src: url('../fonts/Verdana-Bold.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Inter UI';
+	src: url('../fonts/Inter-UI-Regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Inter UI';
+	src: url('../fonts/Inter-UI-Medium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Inter UI';
+	src: url('../fonts/Inter-UI-Bold.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Inter UI';
+	src: url('../fonts/Inter-UI-Black.woff') format('woff');
+	font-weight: 900;
+	font-style: normal;
+}
+
+
+@mixin verdana($style: light) {
+	font-family: 'Verdana';
+
+	@if $style == 400 {
+		font-weight: 400;
+	}
+
+	@if $style == 700 {
+		font-weight: 700;
+	}
+}
+
+@mixin inter($style: light) {
+	font-family: 'Inter UI';
+
+	@if $style == 400 {
+		font-weight: 400;
+	}
+	
+	@if $style == 500 {
+		font-weight: 500;
+	}
+
+	@if $style == 700 {
+		font-weight: 700;
+	}
+
+	@if $style == 900 {
+		font-weight: 900;
+	}
+}

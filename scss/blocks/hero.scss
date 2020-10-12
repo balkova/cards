@@ -1,0 +1,369 @@
+.hero{
+    background: url("../img/hero.png") center center no-repeat;
+    height: 100vh;
+    min-height: rem(1020px);
+    background-attachment: fixed;
+    @include big{
+        min-height: rem(700px);
+    }
+    @include tablets{
+        min-height: rem(570px);
+    }
+    @include phones{
+        min-height: rem(350px);
+    }
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.header__logo{
+    width: rem(210px);
+    height: rem(50px);
+    margin-top: rem(40px);
+    transition: .5s;
+    background: url("../img/logo.svg") center center no-repeat;
+    background-size: 100% 100%;
+    &:hover{
+        background: url("../img/logo-hover.svg") center center no-repeat;
+        background-size: 100% 100%;
+    }
+    @include big{
+        width: rem(150px);
+        height: rem(35px);
+        margin-top: rem(30px);
+    }
+    @include phones{
+        width: rem(100px);
+        height: rem(20px);
+        margin-top: rem(15px);
+    }
+}
+.header__number{
+    display: flex;
+    flex-direction: row;
+    padding-top: rem(50px);
+    align-items: center;
+    position: relative;
+    @include big{
+        padding-top: rem(40px);
+    }
+    @include phones{
+        padding-top: rem(10px);
+    }
+}
+.header__number-block{
+    display: flex;
+    flex-direction: column;
+}
+.header__number-text{
+    color: #fff;
+    text-decoration: none;
+    border-bottom: rem(1px) dashed #fff;
+    font-size: rem(24px);
+    line-height: rem(28px);
+    @include verdana(400);
+    margin: 0 rem(10px);
+    padding-bottom: rem(10px);
+    transition: .5s;
+    &:hover{
+        color: #FF9900;
+        border-bottom: rem(1px) dashed #FF9900;
+    }
+    @include big{
+        font-size: rem(20px);
+        line-height: rem(24px);
+    }
+    @include tablets{
+        font-size: rem(18px);
+        line-height: rem(22px);
+    }
+    @include phones{
+        font-size: rem(15px);
+        line-height: rem(18px);
+    }
+}
+.header__arrow{
+    background: url("../img/arrow.svg") center center no-repeat;
+    background-size: 100% 100%;
+    transition: .5s;
+    width: rem(12px);
+    height: rem(6px);
+    &:hover{
+        background: url("../img/arrow-hover.svg") center center no-repeat;
+        background-size: 100% 100%;
+    }
+}
+.hero__container{
+    display: flex;
+    justify-content: space-between;
+    @include phones{
+        justify-content: center;
+    }
+}
+.hero__text{
+    font-size: rem(95px);
+    line-height: rem(100px);
+    color: #fff;
+    margin-top: rem(90px);
+    width: 80%;
+    @include big{
+        font-size: rem(55px);
+        line-height: rem(65px);
+        width: 70%;
+        margin-top: rem(50px);
+    }
+    @include tablets{
+        font-size: rem(45px);
+        line-height: rem(55px);
+    }
+    @include phones{
+        font-size: rem(30px);
+        line-height: rem(40px);
+        width: 90%;
+        margin-top: rem(30px);
+        text-align: center;
+    }
+}
+.hero__text-regular{
+    @include verdana(400);
+}
+.hero__text-bold{
+    margin-top: rem(10px);
+    @include verdana(700);
+    @include tablets{
+        margin-top: rem(5px);
+    }
+    @include phones{
+        margin: 0;
+    }
+}
+.form{
+    display: none;
+}
+.hero__form{
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: rem(10px);
+    width: rem(320px);
+    height: rem(435px);
+    margin-top: rem(25px);
+    display: flex;
+    flex-direction: column;
+    padding: rem(20px);
+    align-items: flex-start;
+    position: absolute;
+    right: 0;
+    top: rem(90px);
+    z-index: 100;
+    @include big{
+        height: rem(345px);
+    }
+    @include tablets{
+        width: rem(260px);
+        margin-top: rem(10px);
+        height: rem(300px);
+    }
+    @include phones{
+        margin-top: rem(-50px);
+        width: rem(285px);
+    }
+}
+.form__text{
+    font-size: rem(23px);
+    line-height: rem(19px);
+    @include verdana(400);
+    color: #222;
+    margin: 0 auto;
+    @include big{
+        font-size: rem(20px);
+    }
+    @include tablets{
+        font-size: rem(16px);
+        line-height: rem(14px);
+    }
+}
+.form__close{
+    position: absolute;
+    background: url("../img/close.svg") center center no-repeat;
+    background-size: 100% 100%;
+    right: rem(15px);
+    top: rem(15px);
+    width: rem(24px);
+    height: rem(24px);
+    transition: .5s;
+    &:hover{
+        background: url("../img/close-hover.svg") center center no-repeat;
+        background-size: 100% 100%;
+    }
+    @include big{
+        width: rem(20px);
+        height: rem(20px);
+    }
+    @include tablets{
+        width: rem(15px);
+        height: rem(15px);
+    }
+}
+.form__text-small{
+    font-size: rem(13px);
+    line-height: rem(16px);
+    @include inter(400);
+    color: #111;
+    padding: rem(10px) 0 rem(5px);
+    @include big{
+        font-size: rem(11px);
+        line-height: rem(13px);
+        padding: rem(7px) 0 rem(3px);
+    }
+    @include tablets{
+        font-size: rem(10px);
+        line-height: rem(12px);
+        padding: rem(5px) 0 rem(2px);
+    }
+}
+.verdana{
+    @include verdana(400);
+    padding-bottom: rem(10px);
+    @include big{
+        padding-bottom: rem(5px);
+    }
+}
+.form__select{
+    border: rem(1px) solid #FF9900;
+    width: 100%;
+    height: rem(40px);
+    border-radius: rem(4px);    
+    background-image: url("../img/vector.svg");
+    background-repeat: no-repeat;
+    background-repeat: no-repeat;
+    background-position: right rem(13px) center;
+    padding: rem(5px) rem(35px) rem(5px) rem(10px);
+    font-size: rem(19px);
+    line-height: rem(23px);
+    cursor: pointer;
+    @include inter(400);
+    color: #111;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: relative;
+    @include big{
+        font-size: rem(14px);
+        height: rem(30px);
+        line-height: rem(19px);
+    }
+    @include tablets{
+        font-size: rem(12px);
+        line-height: rem(14px);
+        height: rem(25px);
+        padding: rem(2px) rem(25px) rem(2px) rem(5px);
+    }
+}
+.form__select:active, .form__select:focus, .input__text:active, .input__text:focus{
+    outline: none;
+}
+.form__select::-moz-focus-inner, .input__text::-moz-focus-inner{
+    border: 0;
+}
+.input__text{
+    border: rem(1px) solid #FF9900;
+    width: 100%;
+    height: rem(40px);
+    border-radius: rem(4px);
+    background: #fff;
+    padding: rem(5px) rem(10px);
+    font-size: rem(19px);
+    line-height: rem(23px);
+    @include inter(400);
+    color: #111;
+    @include big{
+        font-size: rem(14px);
+        line-height: rem(19px);
+        height: rem(30px);
+    }
+    @include tablets{
+        font-size: rem(12px);
+        line-height: rem(14px);
+        height: rem(25px);
+        padding: rem(2px) rem(25px) rem(2px) rem(5px);
+    }
+}
+input[type='number']{
+    -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
+.form__btn{
+    font-size: rem(17px);
+    line-height: rem(20px);
+    border: rem(2px) solid #FF9900;
+    border-radius: rem(25px);
+    width: 100%;
+    height: rem(50px);
+    background: #FF9900;
+    padding: rem(10px) rem(20px);
+    @include inter(500);
+    margin: rem(20px) 0 rem(10px);
+    color: #fff;
+    transition: .5s;
+    &:hover{
+        color: #FF9900;
+        background: #fff;
+    }
+    @include big{
+        font-size: rem(14px);
+        line-height: rem(17px);
+        height: rem(40px);
+        margin: rem(15px) 0 rem(7px);
+    }
+    @include tablets{
+        font-size: rem(12px);
+        line-height: rem(14px);
+        height: rem(35px);
+    }
+    @include phones{
+        font-size: rem(11px);
+    }
+}
+.hero__btn{
+    display: flex;
+    margin-top: rem(70px);
+    width: rem(300px);
+    height: rem(50px);
+    border: rem(2px) solid #FF9900;
+    border-radius: rem(25px);
+    padding: rem(10px) rem(20px);
+    background: #FF9900;
+    font-size: rem(17px);
+    line-height: rem(20px);
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: .5s;
+    &:hover{
+        color: #FF9900;
+        background: #fff;
+    }
+    @include big{
+        font-size: rem(14px);
+        line-height: rem(17px);
+        margin-top: rem(50px);
+    }
+    @include tablets{
+        font-size: rem(12px);
+        line-height: rem(14px);
+        height: rem(35px);
+        width: rem(250px);
+    }
+    @include phones{
+        width: rem(200px);
+        margin: rem(30px) auto 0;
+        font-size: rem(11px);
+    }
+}

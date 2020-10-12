@@ -1,0 +1,217 @@
+.selection__container{
+    background: #FF9900;
+}
+.selection__text{
+    font-size: rem(71px);
+    line-height: rem(83px);
+    color: #fff;
+    text-align: center;
+    padding: rem(25px) 0; 
+    @include verdana(700);
+    @include big{
+        font-size: rem(45px);
+        line-height: rem(60px);
+        padding: rem(20px) 0;
+    }
+    @include tablets{
+        font-size: rem(35px);
+        line-height: rem(40px);
+        padding: rem(15px) 0;
+    }
+    @include phones{
+        font-size: rem(24px);
+        line-height: rem(24px);
+    }
+}
+.selection__list{
+    display: flex;
+    flex-direction: column;
+    &:first-child{
+        margin-top: rem(60px);
+    }
+    &:last-child{
+        margin-bottom: rem(100px);
+    }
+    @include big{
+        &:first-child{
+            margin-top: rem(50px);
+        }
+        &:last-child{
+            margin-bottom: rem(80px);
+        }
+    }
+    @include tablets{
+        &:first-child{
+            margin-top: rem(40px);
+        }
+        &:last-child{
+            margin-bottom: rem(50px);
+        }
+    }
+    @include phones{
+        &:first-child{
+            margin-top: rem(25px);
+        }
+        &:last-child{
+            margin-bottom: rem(30px);
+        }
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+    @include phonesMin{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+.selection__item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 2px solid #FF9900;
+    margin-top: rem(40px);
+    align-items: center;
+    height: rem(120px); 
+    @include big{
+        height: rem(100px);
+        margin-top: rem(20px);
+    }
+    @include tablets{
+        height: rem(70px);
+        margin-top: rem(15px);
+    }
+    @include phones{
+        height: rem(200px);
+        width: rem(287px);
+        margin-top: rem(10px);
+        flex-direction: column;
+    }
+}
+.selection__picture{
+    width: 30%;
+    height: 100%;
+    @include phones{
+        width: rem(283px);
+        height: 30%;
+    }
+}
+.selection__city{
+    width: 20%;
+    text-align: center;
+    font-size: rem(36px);
+    line-height: rem(42px);
+    color: #727271;
+    @include verdana(400);
+    @include big{
+        font-size: rem(24px);
+        line-height: rem(32px);
+    }
+    @include tablets{
+        font-size: rem(18px);
+        line-height: rem(24px);
+    }
+    @include phones{
+        width: 100%;
+        height: 20%;
+    }
+}
+.selection__block{
+    width: 30%;
+    display: flex;
+    justify-content: flex-start;
+    @include phones{
+        width: 100%;
+        height: 20%;
+        justify-content: center;
+    }
+}
+.selection__block-img{
+    width: rem(74px);
+    height: rem(74px);
+    margin-right: rem(20px);
+    @include big{
+        width: rem(55px);
+        height: rem(55px);
+        margin-right: rem(11px);
+        &:last-child{
+            margin-right: 0;
+        }
+    }
+    @include tablets{
+        width: rem(40px);
+        height: rem(40px);
+        margin-right: rem(5px);
+        &:last-child{
+            margin-right: 0;
+        }
+    }
+    @include phones{
+        width: rem(30px);
+        height: rem(30px);
+        margin-right: rem(20px);
+        &:last-child{
+            margin-right: 0;
+        }
+    }
+}
+.selection__btn{
+    width: 20%;
+    text-decoration: none;
+    color: #fff;
+    background: #FF9900;
+    border: rem(2px) solid #FF9900;
+    border-radius: rem(36px);
+    padding: rem(10px);
+    margin: 0 rem(35px);
+    font-size: rem(17px);
+    line-height: rem(20px);
+    height: rem(50px);
+    @include inter(500);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .5s;
+    &:hover{
+        color: #FF9900;
+        background: #fff;
+    }
+    @include big{
+        margin: 0 rem(10px) 0 rem(40px);
+        height: rem(40px);
+    }
+    @include tablets{
+        font-size: rem(12px);
+        line-height: rem(14px);
+        margin: 0 rem(10px);
+        height: rem(35px);
+    }
+    @include phones{
+        width: rem(150px);
+        height: 20%;
+        margin-bottom: rem(15px);
+        font-size: rem(11px);
+    }
+}
+
+
+.selection__map{
+    height: rem(660px);
+    width: 100vw;
+    @include big{
+        height: rem(400px);
+    }
+    @include tablets{
+        height: rem(250px);
+    }
+    @include phones{
+        height: rem(150px);
+    }
+}
+.balloon_img{
+    width: rem(160px);
+    height: rem(92px);
+}
+.balloon_img img{
+    width: 100%;
+    height: 100%;
+}

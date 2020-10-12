@@ -1,0 +1,135 @@
+.where{
+    background: #fff;
+}
+.where__container{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.where__text{
+    font-size: rem(61px);
+    line-height: rem(71px);
+    color: #C24422;
+    @include verdana(700);
+    margin-top: rem(90px);
+    @include big{
+        font-size: rem(45px);
+        margin-top: rem(40px);
+        line-height: rem(50px);
+    }
+    @include tablets{
+        font-size: rem(30px);
+        line-height: rem(35px);
+        margin-top: rem(30px);
+    }
+    @include phones{
+        font-size: rem(24px);
+        line-height: rem(30px);
+        margin-top: rem(20px);
+    }
+}
+.where__container-block{
+    display: flex;
+    flex-direction: row;
+    @include big{
+        justify-content: space-evenly;
+    }
+    @include phones{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+.where__img{
+    width: rem(625px);
+    height: rem(265px);
+    margin: rem(70px) rem(30px) 0 0;
+    @include big{
+        width: rem(450px);
+        height: rem(200px);
+    }
+    @include tablets{
+        width: rem(300px);
+        height: rem(150px);
+        margin: rem(50px) rem(20px) 0;
+    }
+    @include phones{
+        width: rem(250px);
+        height: rem(120px);
+        margin: rem(30px) 0 0;
+    }
+}
+.where__contant{
+    display: flex;
+    flex-direction: column;
+    margin-top: rem(50px);
+    align-items: flex-start;
+    text-align: left;
+    @include phones{
+        align-items: center;
+        text-align: center;
+        margin-top: rem(30px);
+    }
+}
+.where__block-img{
+    width: rem(100px);
+    height: rem(100px);
+    margin-right: rem(30px);
+    @include big{
+        width: rem(70px);
+        height: rem(70px);
+        margin-right: rem(20px);
+    }
+    @include tablets{
+        width: rem(50px);
+        height: rem(50px);
+        margin-right: rem(15px);
+    }
+    @include phones{
+        width: rem(40px);
+        height: rem(40px);
+        margin: 0 rem(5px);
+    }
+}
+.where__text-bold{
+    font-size: rem(47px);
+    line-height: rem(66px);
+    color: #222;
+    @include verdana(700);
+    margin-top: rem(30px);
+    @include big{
+        font-size: rem(32px);
+        margin-top: rem(20px);
+        line-height: rem(40px);
+    }
+    @include tablets{
+        font-size: rem(24px);
+        line-height: rem(30px);
+        margin-top: rem(15px);
+    }
+    @include phones{
+        font-size: rem(20px);
+        margin-top: rem(10px);
+    }
+}
+.where__text-regular{
+    font-size: rem(34px);
+    line-height: rem(48px);
+    color: #222;
+    @include verdana(400);
+    margin-bottom: rem(90px);
+    @include big{
+        font-size: rem(20px);
+        line-height: rem(32px);
+        margin-bottom: rem(40px);
+    }
+    @include tablets{
+        font-size: rem(16px);
+        line-height: rem(24px);
+        margin-bottom: rem(40px);
+    }
+    @include phones{
+        font-size: rem(14px);
+        margin: rem(10px) 0 rem(30px);
+    }
+}
+

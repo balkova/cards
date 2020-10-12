@@ -1,0 +1,76 @@
+.slider{
+    background: #7F8D96;
+}
+.slider__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include phones{
+        flex-direction: column;
+    }
+}
+.slider__img{
+    width: rem(495px);
+    height: auto;
+    margin: rem(50px) 0;
+    @include big{
+        width: rem(400px);
+    }
+    @include tabletsMax{
+        width: rem(300px);
+    }
+    @include tablets{
+        width: rem(250px);
+    }
+    @include phones{
+        width: rem(200px);
+        margin: rem(20px) 0;
+    }
+}
+.slider__block{
+    display: flex;
+    align-items: center;
+}
+.slider__img-bg{
+    width: 100%;
+    height: auto;
+    border-radius: rem(15px);
+    @include tablets{
+        height: rem(125px);
+    }
+}
+
+.swiper-container {
+    width: 60%;
+    height: 100%;
+}
+.swiper-wrapper{
+    width: 80%;
+    margin: rem(20px) 0;
+}
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 rem(7px);
+}
+.catalog {
+}
+// .swiper-button-next{
+//     background: url("../img/arrow-right.svg") center center no-repeat;
+//     background-size: 100% 100%;
+//     transition: .5s;
+//     &:hover{
+//         background: url("../img/arrow-right-hover.svg") center center no-repeat;
+//         background-size: 100% 100%;
+//     }
+// }
+// .swiper-button-prev{
+//     background: url("../img/arrow-left.svg") center center no-repeat;
+//     background-size: 100% 100%;
+//     transition: .5s;
+//     &:hover{
+//         background: url("../img/arrow-left-hover.svg") center center no-repeat;
+//         background-size: 100% 100%;
+//     }
+// }

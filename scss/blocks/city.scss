@@ -1,0 +1,27 @@
+.city{
+    background: url("../img/hero.png") center center no-repeat;
+    height: rem(500px);
+    background-attachment: fixed;
+    @include big{
+        height: rem(350px);
+    }
+    @include tablets{
+        height: rem(190px);
+    }
+    @include phones{
+        height: rem(140px);
+    }
+}
+.city__form{
+    @include big{
+        margin: 0;
+        top: rem(80px);
+    }
+    @include tablets{
+        top: rem(75px);
+        border: 2px solid #FF9900;
+    }
+    @include phones{
+        top: rem(45px);
+    }
+}

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Выбор города</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(42448889, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/42448889" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <div class="wraper">
+        <div class="maincontent">
+            <section class="city">
+                <div class="container">
+                    <header class="header">
+                        <a href="./index.html" class="header__logo"></a>
+                        <div class="header__number">
+                            <div class="header__number-block show_popup" id="show_popup">
+                                <div class="header__number-text">(473) 229-09-79</div>
+                                <!-- <a href="tel:84732409944" class="header__number-text">(473) 240-99-44</a> -->
+                            </div>
+                            <a href="#"  class="header__arrow show_popup"></a>
+                            <form class="form" id="form">
+                                <div class="hero__form">
+                                    <p class="form__text">Позвоните мне</p>
+                                    <a href="#" id="hide_popup" class="form__close hide_popup"></a>
+                                    <label for="city" class="form__text-small">Город</label>
+                                    <select name="city" id="city" class="form__select">
+                                        <option class="" type="text" name="city"  value="Воронеж">Воронеж</option>
+                                        <option class="" type="text" name="city" value="Калуга">Калуга</option>
+                                        <option class="" type="text" name="city" value="Курск">Курск</option>
+                                        <option class="" type="text" name="city" value="Белгород">Белгород</option>
+                                        <option class="" type="text" name="city" value="Липецк">Липецк</option>
+                                    </select>
+                                    <label for="city" class="form__text-small verdana">Ближайший к вам город</label>
+                                    <label for="number" class="form__text-small">Телефон</label>
+                                    <input type="text" name="phone"  class="input__text" id="number" value="+7" placeholder="+7" required="">
+                                    <label for="name" class="form__text-small">Имя</label>
+                                    <input type="text" name="name" class="input__text" id="name" required="">
+                                    <p class="form__text-small verdana">Оператор перезванивает в рабочее время в течении 2 часов</p>
+                                    <input type="submit" value="Отправить заявку" class="form__btn">
+                                </div>
+                            </form>
+                        </div>
+                    </header>
+                </div>
+            </section>
+            <section class="selection">
+                <div class="selection__container">
+                    <p class="selection__text">Выберите город</p>
+                </div>
+                <div class="selection__contant">
+                    <div class="container">
+                        <ul class="selection__list">
+                            <li class="selection__item">
+                                <img src="./img/vrn.png" alt="" class="selection__picture">
+                                <p class="selection__city">Воронеж</p>
+                                <div class="selection__block">
+                                    <img src="./img/lukoil.svg" alt="" class="selection__block-img">
+                                    <img src="./img/kalina.svg" alt="" class="selection__block-img">
+                                    <img src="./img/rosneft.svg" alt="" class="selection__block-img">
+                                    <img src="./img/shell.svg" alt="" class="selection__block-img">
+                                </div>
+                                <a href="./voronezh.html" class="selection__btn">Выбрать город</a>
+                            </li>
+                            <li class="selection__item">
+                                <img src="./img/klg.png" alt="" class="selection__picture">
+                                <p class="selection__city">Калуга</p>
+                                <div class="selection__block">
+                                    <img src="./img/rosneft.svg" alt="" class="selection__block-img">
+                                </div>
+                                <a href="./kaluga.html" class="selection__btn">Выбрать город</a>
+                            </li>
+                        </ul>
+                        <ul class="selection__list">
+                            <li class="selection__item">
+                                <img src="./img/krsk.png" alt="" class="selection__picture">
+                                <p class="selection__city">Курск</p>
+                                <div class="selection__block">
+                                    <img src="./img/lukoil.svg" alt="" class="selection__block-img">
+                                </div>
+                                <a href="./kursk.html" class="selection__btn">Выбрать город</a>
+                            </li>
+                            <li class="selection__item">
+                                <img src="./img/blg.png" alt="" class="selection__picture">
+                                <p class="selection__city">Белгород</p>
+                                <div class="selection__block">
+                                    <img src="./img/lukoil.svg" alt="" class="selection__block-img">
+                                </div>
+                                <a href="./belgorod.html" class="selection__btn">Выбрать город</a>
+                            </li>
+                        </ul>
+                        <ul class="selection__list">
+                            <li class="selection__item">
+                                <img src="./img/lip.png" alt="" class="selection__picture">
+                                <p class="selection__city">Липецк</p>
+                                <div class="selection__block">
+                                    <img src="./img/lukoil.svg" alt="" class="selection__block-img">
+                                </div>
+                                <a href="./lipetsk.html" class="selection__btn">Выбрать город</a>
+                            </li>
+                            <!-- <li class="selection__item">
+                                <img src="./img/tul.png" alt="" class="selection__picture">
+                                <p class="selection__city">Тула</p>
+                                <div class="selection__block">
+                                    <img src="./img/lukoil.svg" alt="" class="selection__block-img">
+                                    <img src="./img/rosneft.svg" alt="" class="selection__block-img">
+                                </div>
+                                <a href="./tul.html" class="selection__btn">Выбрать город</a>
+                            </li> -->
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <footer class="footer">
+                <div class="container">
+                    <div class="footer__container">
+                        <p class="footer__text">Для более подробной информации<br>
+                            позвоните нам или оставьте заявку<br>
+                            и мы свяжемся с вами в ближайшее время!</p>
+                        <a href="tel:84732290979" class="footer__number">(473) 229-09-79</a>
+                        <a href="javascript:PopUpShow()" class="footer__btn">Связаться с нами</a>
+                    </div>
+                </div>
+            </footer>
+
+            <form class="form-footer" id="form-footer">
+                <div class="hero__form-footer">
+                    <p class="form__text">Позвоните мне</p>
+                    <a id="hide_popup-footer" href="javascript:PopUpHide()" class="form__close"></a>
+
+                    <label for="number" class="form__text-small">Телефон</label>
+                    <input type="text" name="phone"  class="input__text"  value="+7" id="phone" placeholder="+7" required="">
+                    <label for="name" class="form__text-small">Имя</label>
+                    <input type="text" name="name" class="input__text">
+                    <p class="form__text-small verdana">Оператор перезванивает в рабочее время в течении 2 часов</p>
+                    <input type="submit" value="Отправить заявку" class="form__btn">
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <script src="./js/jquery.maskedinput.min.js"></script>
+    <script src="./js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+
+            $("#form").submit(function() {
+                $.ajax({
+                    type: "POST",
+                    url: "mail.php",
+                    data: $(this).serialize()
+                }).done(function() {
+                    $(this).find("input").val("");
+                    alert("Спасибо за заявку! Скоро мы с вами свяжемся.");
+                    $("#form").trigger("reset");
+                });
+                return false;
+            });
+
+        });
+
+        $(document).ready(function() {
+
+            $("#form-footer").submit(function() {
+                $.ajax({
+                    type: "POST",
+                    url: "mail-city.php",
+                    data: $(this).serialize()
+                }).done(function() {
+                    $(this).find("input").val("");
+                    alert("Спасибо за заявку! Скоро мы с вами свяжемся.");
+                    $("#form-footer").trigger("reset");
+                });
+                return false;
+            });
+
+        });
+    </script>
+
+</body>
+</html>

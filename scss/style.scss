@@ -1,0 +1,26 @@
+$big: 1547px;
+$tabletsMax: 1200px;
+$tablets: 1024px;
+$phones: 768px;
+$phonesMin: 645px;
+
+@import "layout/normalize.scss";
+@import "layout/layout.scss";
+@import "layout/fonts.scss";
+@import "layout/media.scss";
+
+
+@import "blocks/hero.scss";
+@import "blocks/content.scss";
+@import "blocks/slider.scss";
+@import "blocks/where.scss";
+@import "blocks/info.scss";
+
+
+@import "blocks/selection.scss";
+@import "blocks/footer.scss";
+
+@import "blocks/city.scss";
+
+@import "blocks/town.scss";
+@import "blocks/interested.scss";

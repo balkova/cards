@@ -1,0 +1,88 @@
+.footer{
+    background: url("../img/footer.png") center center no-repeat;
+    background-size: 100% 100%;
+}
+.footer__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.footer__text{
+    color: #fff;
+    font-size: rem(48px);
+    line-height: rem(57px);
+    @include inter(500);
+    margin-top: rem(60px);
+    @include big{
+        font-size: rem(32px);
+        line-height: rem(40px);
+    }
+    @include tablets{
+        font-size: rem(24px);
+        line-height: rem(30px);
+        margin-top: rem(30px);
+    }
+    @include phones{
+        font-size: rem(20px);
+        line-height: rem(24px);
+    }
+}
+.footer__number{
+    color: #fff;
+    font-size: rem(37px);
+    line-height: rem(44px);
+    margin-top: rem(20px);
+    text-decoration: none;
+    @include inter(900);
+    transition: .5s;
+    &:hover{
+        color: #FF9900;
+    }
+    @include big{
+        font-size: rem(28px);
+        line-height: rem(34px);
+    }
+    @include tablets{
+        font-size: rem(24px);
+        line-height: rem(30px);
+        margin-top: rem(15px);
+    }
+    @include phones{
+        font-size: rem(20px);
+        line-height: rem(24px);
+    }
+}
+.footer__btn{
+    color: #fff;
+    font-size: rem(17px);
+    line-height: rem(20px);
+    @include inter(500);
+    width: rem(300px);
+    height: rem(50px);
+    border: rem(2px) solid #FF9900;
+    border-radius: rem(25px);
+    margin: rem(20px) 0 rem(60px);
+    text-decoration: none;
+    background: #FF9900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .5s;
+    &:hover{
+        color: #FF9900;
+        background: #fff;
+    }
+    @include big{
+        height: rem(40px);
+        margin: rem(20px) 0 rem(40px);
+    }
+    @include tablets{
+        height: rem(35px);
+        margin: rem(15px) 0 rem(30px);
+        font-size: rem(14px);
+    }
+    @include phones{
+        width: rem(270px);
+    }
+}

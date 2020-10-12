@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Воронеж</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU" type="text/javascript">
+    </script>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(42448889, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/42448889" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <div class="wraper">
+        <div class="maincontent">
+            <header class="town__header vrn">
+                <div class="container">
+                    <div class="town__container">
+                        <div class="town__text-container">
+                            <p class="town__text">Воронеж</p>
+                            <a href="./choose_city.html" class="town__btn">Сменить город</a>
+                            <a href="./index.html" class="town__link">На главную</a>
+                        </div>
+                        <a href="./index.html" class="header__logo town__logo"></a>
+                        <div class="header__number town__number">
+                            <a href="mailto:409944@mail.ru" class="town__email">409944@mail.ru</a>
+                            <div class="town__number-block show_popup" id="show_popup">
+                                <a class="town__number-text">(473) 229-09-79</a>
+                                <a class="town__number-text">(473) 240-99-44</a>
+                            </div>
+                            <a href="#"  class="header__arrow town__arrow show_popup"></a>
+                            <form class="form" id="form">
+                                <div class="hero__form">
+                                    <p class="form__text">Позвоните мне</p>
+                                    <a href="#" id="hide_popup" class="form__close hide_popup"></a>
+                                    <label for="city" class="form__text-small">Город</label>
+                                    <select name="city" id="city" class="form__select">
+                                        <option class="" type="text" name="city"  value="Воронеж">Воронеж</option>
+                                        <option class="" type="text" name="city" value="Калуга">Калуга</option>
+                                        <option class="" type="text" name="city" value="Курск">Курск</option>
+                                        <option class="" type="text" name="city" value="Белгород">Белгород</option>
+                                        <option class="" type="text" name="city" value="Липецк">Липецк</option>
+                                    </select>
+                                    <label for="city" class="form__text-small verdana">Ближайший к вам город</label>
+                                    <label for="number" class="form__text-small">Телефон</label>
+                                    <input type="text" name="phone"  class="input__text" id="number" value="+7" placeholder="+7" required="">
+                                    <label for="name" class="form__text-small">Имя</label>
+                                    <input type="text" name="name" class="input__text" id="name" required="">
+                                    <p class="form__text-small verdana">Оператор перезванивает в рабочее время в течении 2 часов</p>
+                                    <input type="submit" value="Отправить заявку" class="form__btn">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <section class="selection">
+                <div class="selection__container">
+                    <p class="selection__text">АЗС на карте</p>
+                </div>
+                <div class="selection__map" id='map'>
+                    <script type="text/javascript">
+                        var myMap, collectionLukoil, collectionVtk, collectionRosneft, collectionKalina;
+            
+                        var azsLukoil = true,
+                            azsVtk = true,
+                            azsRosneft = true,
+                            azsKalina = true;
+                        ymaps.ready(init);
+            
+            
+                        function init() {
+                            myMap = new ymaps.Map('map', {
+                                center: [51.661535, 39.200287],
+                                zoom: 11
+                            });
+            
+            
+                            collectionLukoil = new ymaps.GeoObjectCollection();
+                            collectionVtk = new ymaps.GeoObjectCollection();
+                            collectionRosneft = new ymaps.GeoObjectCollection();
+                            collectionKalina = new ymaps.GeoObjectCollection();
+            
+                            myMap.controls.add(new ymaps.control.ZoomControl());
+                            myMap.controls.add(new ymaps.control.MapTools());
+                            myMap.controls.add('scaleLine');
+                            myMap.controls.add('typeSelector');
+            
+            
+                            var placemark;
+            
+                            // lucoil
+
+                            placemark = new ymaps.Placemark([51.668065, 39.126859], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a1.jpg"></div><div class="balloon_address">ул. Холмистая, 62</div><div class="balloon_tel">АЗК № 421</div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon2.png',
+                                balloonclose: true,
+                            });
+                            collectionLukoil.add(placemark);
+                            placemark = new ymaps.Placemark([51.655858, 39.135087], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a2.jpg"></div><div class="balloon_address">ул. Героев Сибиряков, 20А</div><div class="balloon_tel">АЗК № 424</div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon2.png',
+                                balloonclose: false,
+                            });
+                            collectionLukoil.add(placemark);
+                            placemark = new ymaps.Placemark([51.652860, 39.043673], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a3.jpg"></div><div class="balloon_address">213 км а/д «Воронеж-Курск»</div><div class="balloon_tel">АЗК № 428</div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon2.png',
+                                balloonclose: false,
+                            });
+                            collectionLukoil.add(placemark);
+                            placemark = new ymaps.Placemark([51.635031, 39.206002], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a4.jpg"></div><div class="balloon_address">ул. Степана Солодовникова, 6</div><div class="balloon_tel">АЗК № 447</div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon2.png',
+                                balloonclose: false,
+                            });
+                            collectionLukoil.add(placemark);
+                            placemark = new ymaps.Placemark([51.676519, 39.333220], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a5.jpg"></div><div class="balloon_address">12 км а/д "Воронеж - Тамбов"</div><div class="balloon_tel">АЗК № 426</div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon2.png',
+                                balloonclose: false,
+                            });
+                            collectionLukoil.add(placemark);
+                            placemark = new ymaps.Placemark([51.643376, 39.312532], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a6.jpg"></div><div class="balloon_address">Новоусманский р-н, 518 км а/д М4 Дон</div><div class="balloon_tel">№ 423</div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon2.png',
+                                balloonclose: false,
+                            });
+                            collectionLukoil.add(placemark);
+                            placemark = new ymaps.Placemark([51.680930, 39.286238], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a7.jpg"></div><div class="balloon_address">ул. Остужева, 37</div><div class="balloon_tel">АЗК № 445</div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon2.png',
+                                balloonclose: false,
+                            });
+                            collectionLukoil.add(placemark);
+                            placemark = new ymaps.Placemark([51.627389, 39.286280], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a8.jpg"></div><div class="balloon_address">ул. Ильюшина, 17</div><div class="balloon_tel">АЗК № 435</div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon2.png',
+                                balloonclose: false,
+                            });
+                            collectionLukoil.add(placemark);
+
+                            
+                            // kalina
+
+                            placemark = new ymaps.Placemark([51.696727, 39.138840], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a9.jpg"></div><div class="balloon_address">ул. Беговая, 223Б</div><div class="balloon_tel"></div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon1.png',
+                                balloonclose: false,
+                            });
+                            collectionKalina.add(placemark);
+                            placemark = new ymaps.Placemark([51.726518, 39.163876], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a10.jpg"></div><div class="balloon_address">ул. Антонова-Овсеенко, 32</div><div class="balloon_tel"></div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon1.png',
+                                balloonclose: false,
+                            });
+                            collectionKalina.add(placemark);
+                            placemark = new ymaps.Placemark([51.648032, 39.136974], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a11.jpg"></div><div class="balloon_address">ул. Героев Сибиряков, 35А</div><div class="balloon_tel"></div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon1.png',
+                                balloonclose: false,
+                            });
+                            collectionKalina.add(placemark);
+                            placemark = new ymaps.Placemark([51.645497, 39.129964], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a12.jpg"></div><div class="balloon_address">проспект Патриотов, 23В</div><div class="balloon_tel"></div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon1.png',
+                                balloonclose: false,
+                            });
+                            collectionKalina.add(placemark);
+                            placemark = new ymaps.Placemark([51.621889, 39.260201], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a13.jpg"></div><div class="balloon_address">ул. Просторная, 1А</div><div class="balloon_tel"></div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon1.png',
+                                balloonclose: false,
+                            });
+                            collectionKalina.add(placemark);
+                            placemark = new ymaps.Placemark([51.696035, 39.088242], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a14.jpg"></div><div class="balloon_address">с. Подклетное, ул. Мусихина, 37А</div><div class="balloon_tel"></div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon1.png',
+                                balloonclose: false,
+                            });
+                            collectionKalina.add(placemark);
+                            placemark = new ymaps.Placemark([51.641886, 39.315337], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a15.jpg"></div><div class="balloon_address">с. Отрадное, ул. Автодорожная, 5</div><div class="balloon_tel"></div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon1.png',
+                                balloonclose: false,
+                            });
+                            collectionKalina.add(placemark);
+                            placemark = new ymaps.Placemark([51.639179, 39.324848], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a16.jpg"></div><div class="balloon_address">с. Отрадное, ул. Автодорожная, 6</div><div class="balloon_tel"></div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon1.png',
+                                balloonclose: false,
+                            });
+                            collectionKalina.add(placemark);
+                            placemark = new ymaps.Placemark([51.598893, 39.235862], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a17.jpg"></div><div class="balloon_address">ул. Новосибирская, 88А</div><div class="balloon_tel"></div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon1.png',
+                                balloonclose: false,
+                            });
+                            collectionKalina.add(placemark);
+
+
+                            //rosneft
+
+                            placemark = new ymaps.Placemark([51.704852, 39.276501], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a18.jpg"></div><div class="balloon_address">Ленинский проспект, 182</div><div class="balloon_tel">АЗК № 2</div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon3.png',
+                                balloonclose: false,
+                            });
+                            collectionRosneft.add(placemark);
+                            placemark = new ymaps.Placemark([51.708148, 39.181675], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a19.jpg"></div><div class="balloon_address">Московский проспект, 84</div><div class="balloon_tel">АЗК № 3</div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon3.png',
+                                balloonclose: false,
+                            });
+                            collectionRosneft.add(placemark);
+                            placemark = new ymaps.Placemark([51.661890, 39.151189], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a20.jpg"></div><div class="balloon_address">ул. Космонавтов, 6А</div><div class="balloon_tel">АЗК № 26</div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon3.png',
+                                balloonclose: false,
+                            });
+                            collectionRosneft.add(placemark);
+                            placemark = new ymaps.Placemark([51.636323, 39.262395], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a21.jpg"></div><div class="balloon_address">пер. Отличников, 43А</div><div class="balloon_tel">АЗК № 36</div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon3.png',
+                                balloonclose: false,
+                            });
+                            collectionRosneft.add(placemark);
+                            placemark = new ymaps.Placemark([51.644190, 39.144464], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a22.jpg"></div><div class="balloon_address">проспект Патриотов, 1А</div><div class="balloon_tel">АЗК № 37</div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon3.png',
+                                balloonclose: false,
+                            });
+                            collectionRosneft.add(placemark);
+                            placemark = new ymaps.Placemark([51.599367, 39.258615], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a23.jpg"></div><div class="balloon_address">ул. Чебышева, 13</div><div class="balloon_tel">АЗК № 54</div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon3.png',
+                                balloonclose: false,
+                            });
+                            collectionRosneft.add(placemark);
+                            placemark = new ymaps.Placemark([51.648147, 39.094990], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a23.jpg"></div><div class="balloon_address">проспект Патриотов, 69</div><div class="balloon_tel">АЗС № 66</div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon3.png',
+                                balloonclose: false,
+                            });
+                            collectionRosneft.add(placemark);
+                            placemark = new ymaps.Placemark([51.733186, 39.181454], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a25.jpg"></div><div class="balloon_address">Московский проспект, 144</div><div class="balloon_tel">АЗС № 67</div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon3.png',
+                                balloonclose: false,
+                            });
+                            collectionRosneft.add(placemark);
+                            placemark = new ymaps.Placemark([51.680385, 39.116491], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a26.jpg"></div><div class="balloon_address">ул. 9 Января, 245А</div><div class="balloon_tel">АЗС № 100</div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon3.png',
+                                balloonclose: false,
+                            });
+                            collectionRosneft.add(placemark);
+                            placemark = new ymaps.Placemark([51.717871, 39.149124], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a27.jpg"></div><div class="balloon_address">ул. Антонова-Овсеенко, 35А</div><div class="balloon_tel">АЗС № 165</div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon3.png',
+                                balloonclose: false,
+                            });
+                            collectionRosneft.add(placemark);
+
+
+                            //shell
+
+                            placemark = new ymaps.Placemark([51.681094, 39.284691], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a28.jpg"></div><div class="balloon_address">улица Остужева, 35</div><div class="balloon_tel">АЗС № 41</div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon5.svg',
+                                balloonclose: false,
+                            });
+                            collectionVtk.add(placemark);
+                            placemark = new ymaps.Placemark([51.617388, 39.177943], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a29.jpg"></div><div class="balloon_address">Острогожская ул., 103</div><div class="balloon_tel">АЗС № 2</div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon5.svg',
+                                balloonclose: false,
+                            });
+                            collectionVtk.add(placemark);
+                            placemark = new ymaps.Placemark([51.591265, 39.249247], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a30.jpg"></div><div class="balloon_address">ул. Корольковой, 11Г</div><div class="balloon_tel">АЗС № 5</div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon5.svg',
+                                balloonclose: false,
+                            });
+                            collectionVtk.add(placemark);
+                            placemark = new ymaps.Placemark([51.651849, 39.295785], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a31.jpg"></div><div class="balloon_address">ул. Димитрова, 140Д</div><div class="balloon_tel">АЗС № 7</div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon5.svg',
+                                balloonclose: false,
+                            });
+                           /* collectionVtk.add(placemark);
+                            placemark = new ymaps.Placemark([51.694169, 39.218942], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a32.jpg"></div><div class="balloon_address">ул. Рылеева, 22Н</div><div class="balloon_tel">АЗС № 9</div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon5.svg',
+                                balloonclose: false,
+                            });*/
+                            collectionVtk.add(placemark);
+                            placemark = new ymaps.Placemark([51.685730, 39.164813], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a32.jpg"></div><div class="balloon_address">ул. Солнечная, 31Л</div><div class="balloon_tel">АЗС № 9</div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon5.svg',
+                                balloonclose: false,
+                            });
+                            collectionVtk.add(placemark);
+                            placemark = new ymaps.Placemark([51.672565, 39.119999], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a33.jpg"></div><div class="balloon_address">ул. Героев Сибиряков, 1Л</div><div class="balloon_tel">АЗС № 12</div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon5.svg',
+                                balloonclose: false,
+                            });
+                            collectionVtk.add(placemark);
+                            placemark = new ymaps.Placemark([51.627158, 39.261189], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a34.jpg"></div><div class="balloon_address">ул. Красный Октябрь, 2/1</div><div class="balloon_tel">АЗС № 14</div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon5.svg',
+                                balloonclose: false,
+                            });
+                            collectionVtk.add(placemark);
+            
+                            draw();
+                        };
+            
+                        function draw() {
+                            /* remove all placemarks */
+                            myMap.geoObjects.remove(collectionLukoil);
+                            myMap.geoObjects.remove(collectionVtk);
+                            myMap.geoObjects.remove(collectionRosneft);
+                            myMap.geoObjects.remove(collectionKalina);
+            
+                            /* draw new placemarks */
+                            if (azsLukoil) {
+                                myMap.geoObjects.add(collectionLukoil);
+                            }
+                            if (azsVtk) {
+                                myMap.geoObjects.add(collectionVtk);
+                            }
+                            if (azsRosneft) {
+                                myMap.geoObjects.add(collectionRosneft);
+                            }
+                            if (azsKalina) {
+                                myMap.geoObjects.add(collectionKalina);
+                            }
+                        }
+            
+            
+                        function redraw(e) {
+                            $(e).toggleClass('active');
+                            element = $(e);
+            
+                            azsLukoil = azsVtk = azsRosneft = azsKalina = false;
+                            
+                            var flag = true;
+            
+                            $(".interested__img-contant").each(function(index) {
+                                if($(this).hasClass( "active" )){
+                                    if($(this).data('azs') == 'lukoil'){ azsLukoil = !azsLukoil; }
+                                    if($(this).data('azs') == 'vtk'){ azsVtk = !azsVtk; }
+                                    if($(this).data('azs') == 'rosneft'){ azsRosneft = !azsRosneft; }
+                                    if($(this).data('azs') == 'kalina'){ azsKalina = !azsKalina; }
+                                    
+                                    flag = false;
+                                }
+                                 
+                            });
+                            
+                            if(flag){
+                                azsLukoil = azsVtk = azsRosneft = azsKalina = true;
+                            }
+                            
+                            draw();
+                        }
+                    </script>
+                </div>
+            </section>
+            <section class="interested">
+                <div class="container">
+                    <div class="interested__container">
+                        <p class="interested__text">Выберете интересующие АЗС</p>
+                        <div class="interested__img-container">
+                            <a  class="interested__img-contant" href="javascript:void(0)" onclick="redraw(this);" data-azs="lukoil">
+                                <img src="./img/lukoil.svg" alt="" class="interested__img">
+                            </a> 
+                            <a class="interested__img-contant" href="javascript:void(0)" onclick="redraw(this);" data-azs="kalina">
+                                <img src="./img/kalina.svg" alt="" class="interested__img">
+                            </a> 
+                            <a class="interested__img-contant" href="javascript:void(0)" onclick="redraw(this);" data-azs="rosneft">
+                                <img src="./img/rosneft.svg" alt="" class="interested__img">
+                            </a> 
+                            <a class="interested__img-contant" href="javascript:void(0)" onclick="redraw(this);" data-azs="vtk">
+                                <img src="./img/shell.svg" alt="" class="interested__img">
+                            </a> 
+                        </div>
+                        <div class="interested__btn">
+                            <!--<p class="interested__text-small">Стоимость размещения</p>-->
+                            <p class="interested__text-big">от 7000 ₽/мес</p>
+                        </div>
+                        <p class="interested__min-text">В цену входит изготовление и размещение ваших карт.<br>
+                            Минимальный договор – 3 месяца</p>
+                    </div>
+                </div>
+            </section>
+            <footer class="footer">
+                <div class="container">
+                    <div class="footer__container">
+                        <p class="footer__text">Для более подробной информации<br>
+                            позвоните нам или оставьте заявку<br>
+                            и мы свяжемся с вами в ближайшее время!</p>
+                        <a href="tel:84732290979" class="footer__number">(473) 229-09-79</a>
+                        <a id="show_popup-footer" href="javascript:PopUpShow()" class="footer__btn">Связаться с нами</a>
+                    </div>
+                </div>
+            </footer>
+
+            <form class="form-footer" id="form-footer">
+                <div class="hero__form-footer">
+                    <p class="form__text">Позвоните мне</p>
+                    <a id="hide_popup-footer" href="javascript:PopUpHide()" class="form__close"></a>
+
+                    <label for="number" class="form__text-small">Телефон</label>
+                    <input type="text" name="phone"  class="input__text"  value="+7" id="phone" placeholder="+7" required="">
+                    <label for="name" class="form__text-small">Имя</label>
+                    <input type="text" name="name" class="input__text">
+                    <p class="form__text-small verdana">Оператор перезванивает в рабочее время в течении 2 часов</p>
+                    <input type="submit" value="Отправить заявку" class="form__btn">
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <script src="./js/jquery.maskedinput.min.js"></script>
+    <script src="./js/main.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            $("#form").submit(function() {
+                $.ajax({
+                    type: "POST",
+                    url: "mail.php",
+                    data: $(this).serialize()
+                }).done(function() {
+                    $(this).find("input").val("");
+                    alert("Спасибо за заявку! Скоро мы с вами свяжемся.");
+                    $("#form").trigger("reset");
+                });
+                return false;
+            });
+
+        });
+
+        $(document).ready(function() {
+
+            $("#form-footer").submit(function() {
+                $.ajax({
+                    type: "POST",
+                    url: "mail-city.php",
+                    data: $(this).serialize()
+                }).done(function() {
+                    $(this).find("input").val("");
+                    alert("Спасибо за заявку! Скоро мы с вами свяжемся.");
+                    $("#form-footer").trigger("reset");
+                });
+                return false;
+            });
+
+        });
+    </script>
+
+
+</body>
+</html>

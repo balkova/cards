@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Курск</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU" type="text/javascript">
+    </script>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(42448889, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/42448889" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <div class="wraper">
+        <div class="maincontent">
+            <header class="town__header krsk">
+                <div class="container">
+                    <div class="town__container">
+                        <div class="town__text-container">
+                            <p class="town__text">Курск</p>
+                            <a href="./choose_city.html" class="town__btn">Сменить город</a>
+                            <a href="./index.html" class="town__link">На главную</a>
+                        </div>
+                        <a href="./index.html" class="header__logo town__logo"></a>
+                        <div class="header__number town__number">
+                            <a href="mailto:409944@mail.ru" class="town__email">409944@mail.ru</a>
+                            <div class="town__number-block show_popup"  id="show_popup">
+                                <a class="town__number-text">(473) 229-09-79</a>
+                                <a class="town__number-text">(473) 240-99-44</a>
+                            </div>
+                            <a href="#" class="header__arrow town__arrow show_popup"></a>
+                            <form class="form" id="form">
+                                <div class="hero__form">
+                                    <p class="form__text">Позвоните мне</p>
+                                    <a href="#" id="hide_popup" class="form__close hide_popup"></a>
+                                    <label for="city" class="form__text-small">Город</label>
+                                    <select name="city" id="city" class="form__select">
+                                        <option class="" type="text" name="city"  value="Воронеж">Воронеж</option>
+                                        <option class="" type="text" name="city" value="Калуга">Калуга</option>
+                                        <option class="" type="text" name="city" value="Курск">Курск</option>
+                                        <option class="" type="text" name="city" value="Белгород">Белгород</option>
+                                        <option class="" type="text" name="city" value="Липецк">Липецк</option>
+                                    </select>
+                                    <label for="city" class="form__text-small verdana">Ближайший к вам город</label>
+                                    <label for="number" class="form__text-small">Телефон</label>
+                                    <input type="text" name="phone"  class="input__text" id="number" value="+7" placeholder="+7" required="">
+                                    <label for="name" class="form__text-small">Имя</label>
+                                    <input type="text" name="name" class="input__text" id="name" required="">
+                                    <p class="form__text-small verdana">Оператор перезванивает в рабочее время в течении 2 часов</p>
+                                    <input type="submit" value="Отправить заявку" class="form__btn">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <section class="selection">
+                <div class="selection__container">
+                    <p class="selection__text">АЗС на карте</p>
+                </div>
+                <div class="selection__map" id='map'>
+                    <script type="text/javascript">
+                        var myMap, collectionLukoil, collectionVtk, collectionRosneft, collectionKalina;
+            
+                        var azsLukoil = true,
+                            azsVtk = true,
+                            azsRosneft = true,
+                            azsKalina = true;
+                        ymaps.ready(init);
+            
+            
+                        function init() {
+                            myMap = new ymaps.Map('map', {
+                                center: [51.730361, 36.192647],
+                                zoom: 12
+                            });
+            
+            
+                            collectionLukoil = new ymaps.GeoObjectCollection();
+                            collectionVtk = new ymaps.GeoObjectCollection();
+                            collectionRosneft = new ymaps.GeoObjectCollection();
+                            collectionKalina = new ymaps.GeoObjectCollection();
+            
+                            myMap.controls.add(new ymaps.control.ZoomControl());
+                            myMap.controls.add(new ymaps.control.MapTools());
+                            myMap.controls.add('scaleLine');
+                            myMap.controls.add('typeSelector');
+            
+            
+                            var placemark;
+            
+                            // lucoil
+
+                            placemark = new ymaps.Placemark([51.738345, 36.122992], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a6.jpg"></div><div class="balloon_address">проспект Дружбы, 17</div><div class="balloon_tel">АЗК № 479</div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon2.png',
+                                balloonclose: true,
+                            });
+                            collectionLukoil.add(placemark);
+                            placemark = new ymaps.Placemark([51.712229, 36.165791], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a1.jpg"></div><div class="balloon_address">ул. Энгельса, 45, 20А</div><div class="balloon_tel">АЗК № 475</div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon2.png',
+                                balloonclose: false,
+                            });
+                            collectionLukoil.add(placemark);
+                            placemark = new ymaps.Placemark([51.740333, 36.147274], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a5.jpg"></div><div class="balloon_address">ул. Студенческая, 2А</div><div class="balloon_tel">АЗК № 478</div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon2.png',
+                                balloonclose: false,
+                            });
+                            collectionLukoil.add(placemark);
+                            placemark = new ymaps.Placemark([51.743277, 36.263659], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a38.jpg"></div><div class="balloon_address">ул. Халинская, 2А</div><div class="balloon_tel">АЗК № 474</div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon2.png',
+                                balloonclose: false,
+                            });
+                            collectionLukoil.add(placemark);
+                            placemark = new ymaps.Placemark([51.722239, 36.213534], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a39.jpg"></div><div class="balloon_address">ул. 2-я Новоселовка, 1Г</div><div class="balloon_tel">АЗК № 476</div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon2.png',
+                                balloonclose: false,
+                            });
+                            collectionLukoil.add(placemark);
+                            placemark = new ymaps.Placemark([51.694270, 36.149912], {
+                                balloonContent: '<div class="balloon_img"><img src="./img/a2.jpg"></div><div class="balloon_address">27 км а/д «Москва-Харьков»</div><div class="balloon_tel">№ 477</div>'
+                            }, {
+                                iconImageSize: [30, 30],
+                                iconImageOffset: [-15, -15],
+                                cursor: 'pointer',
+                                iconShadow: true,
+                                iconImageHref: 'img/map_icon2.png',
+                                balloonclose: false,
+                            });
+                            collectionLukoil.add(placemark);
+
+            
+                            draw();
+                        };
+            
+                        function draw() {
+                            /* remove all placemarks */
+                            myMap.geoObjects.remove(collectionLukoil);
+                            myMap.geoObjects.remove(collectionVtk);
+                            myMap.geoObjects.remove(collectionRosneft);
+                            myMap.geoObjects.remove(collectionKalina);
+            
+                            /* draw new placemarks */
+                            if (azsLukoil) {
+                                myMap.geoObjects.add(collectionLukoil);
+                            }
+                            if (azsVtk) {
+                                myMap.geoObjects.add(collectionVtk);
+                            }
+                            if (azsRosneft) {
+                                myMap.geoObjects.add(collectionRosneft);
+                            }
+                            if (azsKalina) {
+                                myMap.geoObjects.add(collectionKalina);
+                            }
+                        }
+            
+            
+                        function redraw(e) {
+                            $(e).toggleClass('active');
+                            element = $(e);
+            
+                            azsLukoil = azsVtk = azsRosneft = azsKalina = false;
+                            
+                            var flag = true;
+            
+                            $(".interested__img-contant").each(function(index) {
+                                if($(this).hasClass( "active" )){
+                                    if($(this).data('azs') == 'lukoil'){ azsLukoil = !azsLukoil; }
+                                    if($(this).data('azs') == 'vtk'){ azsVtk = !azsVtk; }
+                                    if($(this).data('azs') == 'rosneft'){ azsRosneft = !azsRosneft; }
+                                    if($(this).data('azs') == 'kalina'){ azsKalina = !azsKalina; }
+                                    
+                                    flag = false;
+                                }
+                                 
+                            });
+                            
+                            if(flag){
+                                azsLukoil = azsVtk = azsRosneft = azsKalina = true;
+                            }
+                            
+                            draw();
+                        }
+                    </script>
+                </div>
+            </section>
+            <section class="interested">
+                <div class="container">
+                    <div class="interested__container">
+                        <p class="interested__text">Выберете интересующие АЗС</p>
+                        <div class="interested__img-container">
+                            <a  class="interested__img-contant" href="javascript:void(0)" onclick="redraw(this);" data-azs="lukoil">
+                                <img src="./img/lukoil.svg" alt="" class="interested__img">
+                            </a> 
+                        </div>
+                        <div class="interested__btn">
+                            <!--<p class="interested__text-small">Стоимость размещения</p>-->
+                            <p class="interested__text-big">от 7000 ₽/мес</p>
+                        </div>
+                        <p class="interested__min-text">В цену входит изготовление и размещение ваших карт.<br>
+                            Минимальный договор – 3 месяца</p>
+                    </div>
+                </div>
+            </section>
+            <footer class="footer">
+                <div class="container">
+                    <div class="footer__container">
+                        <p class="footer__text">Для более подробной информации<br>
+                            позвоните нам или оставьте заявку<br>
+                            и мы свяжемся с вами в ближайшее время!</p>
+                        <a href="tel:84732290979" class="footer__number">(473) 229-09-79</a>
+                        <a href="javascript:PopUpShow()" class="footer__btn">Связаться с нами</a>
+                    </div>
+                </div>
+            </footer>
+
+            <form class="form-footer" id="form-footer">
+                <div class="hero__form-footer">
+                    <p class="form__text">Позвоните мне</p>
+                    <a id="hide_popup-footer" href="javascript:PopUpHide()" class="form__close"></a>
+
+                    <label for="number" class="form__text-small">Телефон</label>
+                    <input type="text" name="phone"  class="input__text"  value="+7" id="phone" placeholder="+7" required="">
+                    <label for="name" class="form__text-small">Имя</label>
+                    <input type="text" name="name" class="input__text">
+                    <p class="form__text-small verdana">Оператор перезванивает в рабочее время в течении 2 часов</p>
+                    <input type="submit" value="Отправить заявку" class="form__btn">
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <script src="./js/jquery.maskedinput.min.js"></script>
+    <script src="./js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+
+            $("#form").submit(function() {
+                $.ajax({
+                    type: "POST",
+                    url: "mail.php",
+                    data: $(this).serialize()
+                }).done(function() {
+                    $(this).find("input").val("");
+                    alert("Спасибо за заявку! Скоро мы с вами свяжемся.");
+                    $("#form").trigger("reset");
+                });
+                return false;
+            });
+
+        });
+
+        $(document).ready(function() {
+
+            $("#form-footer").submit(function() {
+                $.ajax({
+                    type: "POST",
+                    url: "mail-city.php",
+                    data: $(this).serialize()
+                }).done(function() {
+                    $(this).find("input").val("");
+                    alert("Спасибо за заявку! Скоро мы с вами свяжемся.");
+                    $("#form-footer").trigger("reset");
+                });
+                return false;
+            });
+
+        });
+    </script>
+
+</body>
+</html>

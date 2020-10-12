@@ -1,0 +1,112 @@
+.info{
+    background: url("../img/info.png") center center no-repeat;
+}
+.info__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include phones{
+        text-align: center;
+    }
+}
+.info__text-big{
+    font-size: rem(71px);
+    line-height: rem(83px);
+    color: #fff;
+    @include verdana(700);
+    margin-top: rem(60px);
+    @include big{
+        font-size: rem(47px);
+        margin-top: rem(40px);
+        line-height: rem(60px);
+    }
+    @include tablets{
+        font-size: rem(35px);
+        line-height: rem(40px);
+        margin-top: rem(30px);
+    }
+    @include phones{
+        font-size: rem(28px);
+        line-height: rem(35px);
+    }
+}
+.info__text-small{
+    font-size: rem(35px);
+    line-height: rem(41px);
+    color: #fff;
+    @include verdana(400);
+    margin-top: rem(20px);
+    @include big{
+        font-size: rem(24px);
+        line-height: rem(40px);
+    }
+    @include tablets{
+        font-size: rem(20px);
+        line-height: rem(30px);
+        margin-top: rem(10px);
+    }
+    @include phones{
+        font-size: rem(16px);
+        line-height: rem(24px);
+        margin-top: rem(15px);
+    }
+}
+.info__text{
+    font-size: rem(47px);
+    line-height: rem(55px);
+    color: #fff;
+    @include verdana(700);
+    @include big{
+        font-size: rem(32px);
+        line-height: rem(45px);
+    }
+    @include tablets{
+        font-size: rem(26px);
+        line-height: rem(35px);
+    }
+    @include phones{
+        font-size: rem(20px);
+        line-height: rem(24px);
+        margin-top: rem(5px);
+    }
+}
+.info__btn{
+    display: flex;
+    margin: rem(50px) 0 rem(60px);
+    width: rem(300px);
+    height: rem(50px);
+    border: rem(2px) solid #FF9900;
+    border-radius: rem(25px);
+    padding: rem(10px) rem(20px);
+    background: #FF9900;
+    font-size: rem(17px);
+    line-height: rem(20px);
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: .5s;
+    &:hover{
+        color: #FF9900;
+        background: #fff;
+    }
+    @include inter(500);
+    @include big{
+        margin: rem(35px) 0 rem(50px);
+        height: rem(40px);
+        font-size: rem(15px);
+    }
+    @include tablets{
+        font-size: rem(12px);
+        line-height: rem(16px);
+        margin: rem(30px) 0 rem(40px);
+        width: rem(250px);
+    }
+    @include phones{
+        margin: rem(20px) 0 rem(30px);
+        width: rem(200px);
+        height: rem(35px);
+        font-size: rem(11px)
+    }
+}

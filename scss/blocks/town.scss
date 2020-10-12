@@ -1,0 +1,219 @@
+.town__header{
+    height: rem(500px);
+    @include big{
+        height: rem(350px);
+    }
+    @include tablets{
+        height: rem(190px);
+    }
+    @include phones{
+        height: rem(350px);
+    }
+}
+.vrn{
+    background: url("../img/town.png") center center no-repeat;
+}
+.klg{
+    background: url("../img/klg-bg.png") center center no-repeat;
+}
+.krsk{
+    background: url("../img/krsk-bg.png") center center no-repeat;
+}
+.lip{
+    background: url("../img/lip-bg.png") center center no-repeat;
+}
+.blg{
+    background: url("../img/blg-bg.png") center center no-repeat;
+}
+.tul{
+    background: url("../img/tul-bg.png") center center no-repeat;
+}
+.town__container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    @include phones{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+.town__text-container{
+    @include phones{
+        order: 1;
+    }
+}
+.town__text{
+    font-size: rem(71px);
+    line-height: rem(83px);
+    color: #fff;
+    @include verdana(700); 
+    margin-top: rem(40px);
+    @include big{
+        font-size: rem(45px);
+        line-height: rem(54px);
+        margin-top: rem(25px);
+    }
+    @include tablets{
+        font-size: rem(32px);
+        line-height: rem(37px);
+        margin-top: rem(15px);
+    }
+}
+.town__btn{
+    display: flex;
+    margin: rem(40px) 0 rem(20px);
+    width: rem(250px);
+    height: rem(50px);
+    border: rem(2px) solid #FF9900;
+    border-radius: rem(25px);
+    padding: rem(10px) rem(20px);
+    background: #FF9900;
+    font-size: rem(17px);
+    line-height: rem(20px);
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    @include inter(500);
+    transition: .5s;
+    &:hover{
+        color: #FF9900;
+        background: #fff;
+    }
+    @include big{
+        height: rem(45px);
+        margin: rem(30px) 0 rem(15px);
+        font-size: rem(14px);
+        line-height: rem(17px);
+    }
+    @include tablets{
+        height: rem(35px);
+        width: rem(210px);
+        margin: rem(20px) 0 rem(15px);
+        font-size: rem(12px);
+        line-height: rem(14px);
+    }
+}
+.town__link{
+    font-size: rem(17px);
+    line-height: rem(24px);
+    color: #fff;
+    @include inter(400);
+    transition: .5s;
+    &:hover{
+        color: #FF9900;
+    }
+    @include tablets{
+        font-size: rem(14px);
+        line-height: rem(17px);
+    }
+}
+.town__logo{
+    margin-top: rem(48px);
+    @include big{
+        margin-top: rem(37px);
+    }
+    @include tablets{
+        margin-top: rem(20px);
+    }
+    @include phones{
+        order: 0;
+    }
+}
+.town__number{
+    padding: 0;
+    align-items: flex-start;
+    margin-top: rem(60px);
+    @include big{
+        margin-top: rem(40px);
+    }
+    @include tablets{
+        margin-top: rem(27px);
+    }
+    @include phones{
+        order: 2;
+        flex-direction: column;
+        margin-top: rem(15px);
+    }
+}
+.town__email{
+    font-size: rem(24px);
+    line-height: rem(29px);
+    color: #fff;
+    text-decoration: none;
+    @include inter(500);
+    margin-right: rem(30px);
+    transition: .5s;
+    &:hover{
+        color: #FF9900;
+    }
+    @include tablets{
+        margin: 0;
+        font-size: rem(17px);
+        line-height: rem(20px);
+    }
+    @include phones{
+        padding-bottom: rem(10px);
+        border-bottom: rem(1px) dashed #fff;
+        &:hover{
+            color: #FF9900;
+            border-bottom: rem(1px) dashed #FF9900;
+        }
+    }
+}
+.town__number-block{
+    display: flex;
+    flex-direction: column;
+    @include big{
+        padding-top: rem(3px);
+    }
+    @include tablets{
+        padding-top: rem(1px);
+    }
+}
+.town__number-text{
+    color: #fff;
+    text-decoration: none;
+    border-bottom: rem(1px) dashed #fff;
+    font-size: rem(24px);
+    line-height: rem(29px);
+    @include inter(500);
+    margin: 0 rem(10px);
+    padding-bottom: rem(10px);
+    transition: .5s;
+    &:hover{
+        color: #FF9900;
+        border-bottom: rem(1px) dashed #FF9900;
+    }
+    &:last-child{
+        border: 0;
+        padding-top: rem(10px);
+    }
+    @include big{
+        font-size: rem(20px);
+        line-height: rem(24px);
+    }
+    @include tablets{
+        font-size: rem(17px);
+        line-height: rem(20px);
+    }
+    @include phones{
+        font-size: rem(15px);
+        line-height: rem(18px);
+        padding-top: rem(10px);
+    }
+}
+.town__arrow{
+    margin-top: rem(10px);
+    @include phones{
+        position: absolute;
+        top: 0;
+        right: rem(-15px);
+    }
+}
+.town__form{
+    right: rem(-73px);
+    top: rem(35px);
+}
